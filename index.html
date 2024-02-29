@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Project: Rock Paper Scissors</title>
   </head>
   <body>
@@ -13,5 +14,18 @@
       <button type="button" id="scissors">Scissors</button>
     </div>
     <div id="resultMessage"></div>
+    <div id="scoreMessage">
+      Score
+      <table>
+        <tr>
+          <th>Player</th>
+          <td id="playerScore">0</td>
+        </tr>
+        <tr>
+          <th>Computer</th>
+          <td id="computerScore">0</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

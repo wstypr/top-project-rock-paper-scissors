@@ -4,6 +4,21 @@ const rules = {
   scissors: "paper",
 };
 
+const resultMessage = document.querySelector("#resultMessage");
+const choiceBtn = document.querySelectorAll("button");
+
+const playerScoreMessage = document.querySelector("#playerScore");
+const computerScoreMessage = document.querySelector("#computerScore");
+
+let playerScore = 0;
+let computerScore = 0;
+
+for (btn of choiceBtn) {
+  btn.addEventListener("click", (event) => {
+    playRound(event.target.getAttribute("id"));
+  });
+}
+
 function getComputerChoice() {
   // randomly return rock/paper/scissors
   return Object.keys(rules)[Math.floor(Math.random() * 3)];
@@ -26,10 +41,12 @@ function playRound(playerSelection) {
   let computerSelection = getComputerChoice();
   // play 1 round
   if (playerSelection === computerSelection) {
-    console.log(`Draw! computer and player both are ${computerSelection}`);
+    resultMessage.textContent = `Draw! computer and player both are ${computerSelection}`;
   } else if (rules[playerSelection] === computerSelection) {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+    resultMessage.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+    playerScoreMessage.textContent = ++playerScore;
   } else {
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    resultMessage.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+    computerScoreMessage.textContent = ++computerScore;
   }
 }

@@ -1,0 +1,9 @@
+#resultMessage {
+  min-height: 1rem;
+  margin: 0.5rem 0;
+}
+
+th {
+  text-align: start;
+  margin: 0.5rem 0;
+}
