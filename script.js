@@ -45,8 +45,20 @@ function playRound(playerSelection) {
   } else if (rules[playerSelection] === computerSelection) {
     resultMessage.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
     playerScoreMessage.textContent = ++playerScore;
+    if (playerScore === 5) {
+      showWinner("Player");
+    }
   } else {
     resultMessage.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
     computerScoreMessage.textContent = ++computerScore;
+    if (computerScore === 5) {
+      showWinner("Computer");
+    }
   }
+}
+
+function showWinner(winner) {
+  let announcement = document.createElement("p");
+  announcement.textContent = `${winner} Win!!!`;
+  resultMessage.appendChild(announcement);
 }
