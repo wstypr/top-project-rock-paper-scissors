@@ -22,22 +22,14 @@ function getPlayerSelection() {
   return hand;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+  let computerSelection = getComputerChoice();
   // play 1 round
   if (playerSelection === computerSelection) {
-    console.log("Draw!");
+    console.log(`Draw! computer and player both are ${computerSelection}`);
   } else if (rules[playerSelection] === computerSelection) {
     console.log(`You win! ${playerSelection} beats ${computerSelection}`);
   } else {
     console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
   }
-}
-
-function playGame() {
-  // play 5 rounds of game
-  for (let i = 1; i <= 5; i++) {
-    console.log(`Round ${i}`);
-    playRound(getPlayerSelection(), getComputerChoice());
-  }
-  console.log("Game Over");
 }
